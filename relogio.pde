@@ -26,17 +26,14 @@ void draw (){
     float yfirst = r3 *sin(angulo*i-HALF_PI);
     float xsecond= r *cos(angulo*i-HALF_PI) ;
     float ysecond = r *sin(angulo*i-HALF_PI) ;
-    
-    //fill(10, 70, 255);
-    //textSize(15);
-    //text(str(i), xfirst,yfirst); 
+
     line(xfirst,yfirst,xsecond,ysecond);
   }
   
   float hour = hour() + minute()/60.0;
   float testea= (r3-70)*cos(angulo*hour-HALF_PI);
   float teste2b = (r3-70) *sin(angulo*hour-HALF_PI);
- 
+  strokeWeight(2);
   line(testea,teste2b,0,0);
    
   for(int i = 0; i<m; i++){
