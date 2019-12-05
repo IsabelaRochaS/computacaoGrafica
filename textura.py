@@ -25,7 +25,7 @@ def LoadTextures():
 
     ################################################################################
     glBindTexture(GL_TEXTURE_2D, texture[0])
-    reader = png.Reader(filename='dado.png')
+    reader = png.Reader(filename='paperHouse.png')
     w, h, pixels, metadata = reader.read_flat()
     if(metadata['alpha']):
         modo = GL_RGBA
@@ -33,8 +33,6 @@ def LoadTextures():
         modo = GL_RGB
     glPixelStorei(GL_UNPACK_ALIGNMENT,1)
     glTexImage2D(GL_TEXTURE_2D, 0, modo, w, h, 0, modo, GL_UNSIGNED_BYTE, pixels.tolist())
-    #glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP)
-    #glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
@@ -85,28 +83,28 @@ def DrawGLScene():
     glBegin(GL_QUADS)              
     
     # Front Face 
-    glTexCoord2f(2.0/3.0, 0.5); glVertex3f(-1.0, 0.0,  0.5)    
-    glTexCoord2f(1.0, 0.5); glVertex3f( 1.0, 0.0,  0.5)   
-    glTexCoord2f(1.0, 1.0); glVertex3f( 1.0,  1.0,  0.5)   
-    glTexCoord2f(2.0/3.0, 1.0); glVertex3f(-1.0,  1.0,  0.5)  
+    glTexCoord2f(0.226, -0.001); glVertex3f(-1.0, 0.0,  0.5)    
+    glTexCoord2f(0.775, 0.0); glVertex3f( 1.0, 0.0,  0.5)   
+    glTexCoord2f(0.775, -0.325); glVertex3f( 1.0,  1.0,  0.5)   
+    glTexCoord2f(0.226, -0.325); glVertex3f(-1.0,  1.0,  0.5)  
     
     # Back Face
-    glTexCoord2f(1.0, 0.0); glVertex3f(-1.0, 0.0, -0.5)    
-    glTexCoord2f(1.0, 1.0); glVertex3f(-1.0,  1.0, -0.5)    
-    glTexCoord2f(0.0, 1.0); glVertex3f( 1.0,  1.0, -0.5)    
-    glTexCoord2f(0.0, 0.0); glVertex3f( 1.0, 0.0, -0.5)   
+    glTexCoord2f(0.1, -0.3); glVertex3f(-1.0, 0.0, -0.5)    
+    glTexCoord2f(0.25, -0.3); glVertex3f(-1.0,  1.0, -0.5)    
+    glTexCoord2f(0.25, 0.0); glVertex3f( 1.0,  1.0, -0.5)    
+    glTexCoord2f(0.1, 0.0); glVertex3f( 1.0, 0.0, -0.5)   
     
     # Telhado Frente
-    glTexCoord2f(1.0, 0.0); glVertex3f(-1.0,  1.5,  0.0)   
-    glTexCoord2f(1.0, 1.0); glVertex3f(-1.0,  1.0,  0.5)    
-    glTexCoord2f(0.0, 1.0); glVertex3f( 1.0,  1.0,  0.5)    
-    glTexCoord2f(0.0, 0.0); glVertex3f( 1.0,  1.5,  0.0)   
+    glTexCoord2f(0.75, 0.3); glVertex3f(-1.0,  1.5,  0.0)   
+    glTexCoord2f(1.0, 0.3); glVertex3f(-1.0,  1.0,  0.5)    
+    glTexCoord2f(1.0, 0.8); glVertex3f( 1.0,  1.0,  0.5)    
+    glTexCoord2f(0.75, 0.8); glVertex3f( 1.0,  1.5,  0.0)   
 
     # Telhado Outro
-    glTexCoord2f(1.0, 0.0); glVertex3f(-1.0,  1.5,  0.0)   
-    glTexCoord2f(1.0, 1.0); glVertex3f(-1.0,  1.0,  -0.5)    
-    glTexCoord2f(0.0, 1.0); glVertex3f( 1.0,  1.0,  -0.5)    
-    glTexCoord2f(0.0, 0.0); glVertex3f( 1.0,  1.5,  0.0)   
+    glTexCoord2f(0.75, -0.3); glVertex3f(-1.0,  1.5,  0.0)   
+    glTexCoord2f(1.0, -0.3); glVertex3f(-1.0,  1.0,  -0.5)    
+    glTexCoord2f(1.0, -0.8); glVertex3f( 1.0,  1.0,  -0.5)    
+    glTexCoord2f(0.75, -0.8); glVertex3f( 1.0,  1.5,  0.0)   
     
     # Right face
     glTexCoord2f(1.0, 0.0); glVertex3f( 1.0, 0.0, -0.5)    
@@ -141,41 +139,6 @@ def DrawGLScene():
 
     glutSwapBuffers()
 
-
-def keyPressed(tecla, x, y):
-    global dx, dy, dz
-    if tecla == ESCAPE:
-        glutLeaveMainLoop()
-    elif tecla == 'x' or tecla == 'X':
-        dx = 0.5
-        dy = 0
-        dz = 0   
-    elif tecla == 'y' or tecla == 'Y':
-        dx = 0
-        dy = 0.5
-        dz = 0   
-    elif tecla == 'z' or tecla == 'Z':
-        dx = 0
-        dy = 0
-        dz = 0.5
-
-# def teclaEspecialPressionada(tecla, x, y):
-#     global xrot, yrot, zrot, dx, dy, dz
-#     if tecla == GLUT_KEY_LEFT:
-#         print "ESQUERDA"
-#         xrot -= dx                # X rotation
-#         yrot -= dy                 # Y rotation
-#         zrot -= dz                     
-#     elif tecla == GLUT_KEY_RIGHT:
-#         print "DIREITA"
-#         xrot += dx                # X rotation
-#         yrot += dy                 # Y rotation
-#         zrot += dz                     
-#     elif tecla == GLUT_KEY_UP:
-#         print "CIMA"
-#     elif tecla == GLUT_KEY_DOWN:
-#         print "BAIXO"
-
 def main():
     global window
     glutInit(sys.argv)
@@ -198,11 +161,6 @@ def main():
     # Register the function called when our window is resized.
     glutReshapeFunc(ReSizeGLScene)
     
-    # Register the function called when the keyboard is pressed.  
-    glutKeyboardFunc(keyPressed)
-
-    # glutSpecialFunc(teclaEspecialPressionada)
-
     # Initialize our window. 
     InitGL(640, 480)
 
