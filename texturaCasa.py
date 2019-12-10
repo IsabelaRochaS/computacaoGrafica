@@ -72,7 +72,7 @@ def DrawGLScene():
 
     glClearColor(0.5,0.5,0.5,1.0)            
     
-    glTranslatef(0.0,0.0,-5.0)            
+    glTranslatef(0.0,-0.7,-3.0)            
 
     glRotatef(xrot,1.0,0.0,0.0)          
     glRotatef(yrot,0.0,1.0,0.0)           
@@ -83,58 +83,58 @@ def DrawGLScene():
     glBegin(GL_QUADS)              
     
     # Front Face 
-    glTexCoord2f(0.226, -0.001); glVertex3f(-1.0, 0.0,  0.5)    
-    glTexCoord2f(0.775, 0.0); glVertex3f( 1.0, 0.0,  0.5)   
-    glTexCoord2f(0.775, -0.325); glVertex3f( 1.0,  1.0,  0.5)   
-    glTexCoord2f(0.226, -0.325); glVertex3f(-1.0,  1.0,  0.5)  
-    
-    # Back Face
-    glTexCoord2f(0.1, -0.3); glVertex3f(-1.0, 0.0, -0.5)    
-    glTexCoord2f(0.25, -0.3); glVertex3f(-1.0,  1.0, -0.5)    
-    glTexCoord2f(0.25, 0.0); glVertex3f( 1.0,  1.0, -0.5)    
-    glTexCoord2f(0.1, 0.0); glVertex3f( 1.0, 0.0, -0.5)   
-    
-    # Telhado Frente
-    glTexCoord2f(0.75, 0.3); glVertex3f(-1.0,  1.5,  0.0)   
-    glTexCoord2f(1.0, 0.3); glVertex3f(-1.0,  1.0,  0.5)    
-    glTexCoord2f(1.0, 0.8); glVertex3f( 1.0,  1.0,  0.5)    
-    glTexCoord2f(0.75, 0.8); glVertex3f( 1.0,  1.5,  0.0)   
-
-    # Telhado Outro
-    glTexCoord2f(0.75, -0.3); glVertex3f(-1.0,  1.5,  0.0)   
-    glTexCoord2f(1.0, -0.3); glVertex3f(-1.0,  1.0,  -0.5)    
-    glTexCoord2f(1.0, -0.8); glVertex3f( 1.0,  1.0,  -0.5)    
-    glTexCoord2f(0.75, -0.8); glVertex3f( 1.0,  1.5,  0.0)   
+    glTexCoord2f(0.2258, 1.0); glVertex3f(-1.0, 0.0,  0.5)    
+    glTexCoord2f(0.7770, 1.0);  glVertex3f( 1.0, 0.0,  0.5)   
+    glTexCoord2f(0.7770, 0.677); glVertex3f( 1.0,  1.0,  0.5)   
+    glTexCoord2f(0.2258, 0.677); glVertex3f(-1.0,  1.0,  0.5)  
     
     # Right face
-    glTexCoord2f(1.0, 0.0); glVertex3f( 1.0, 0.0, -0.5)    
-    glTexCoord2f(1.0, 1.0); glVertex3f( 1.0,  1.0, -0.5)   
-    glTexCoord2f(0.0, 1.0); glVertex3f( 1.0,  1.0,  0.5)    
-    glTexCoord2f(0.0, 0.0); glVertex3f( 1.0, 0.0,  0.5)  
+    glTexCoord2f(1.0, 1.0); glVertex3f( 1.0, 0.0, -0.5)    
+    glTexCoord2f(1.0, 0.677); glVertex3f( 1.0,  1.0, -0.5)   
+    glTexCoord2f(0.778, 0.677); glVertex3f( 1.0,  1.0,  0.5)     
+    glTexCoord2f(0.778, 1.0); glVertex3f( 1.0, 0.0,  0.5)  
+
+     # Left Face
+    glTexCoord2f(0.003, 1.0); glVertex3f(-1.0, 0.0, -0.5)  
+    glTexCoord2f(0.226, 0.995); glVertex3f(-1.0, 0.0,  0.5)    
+    glTexCoord2f(0.226, 0.677); glVertex3f(-1.0,  1.0,  0.5)   
+    glTexCoord2f(0.003, 0.677); glVertex3f(-1.0,  1.0, -0.5)
     
-    # Left Face
-    glTexCoord2f(1.0, 0.0); glVertex3f(-1.0, 0.0, -0.5)  
-    glTexCoord2f(1.0, 1.0); glVertex3f(-1.0, 0.0,  0.5)    
-    glTexCoord2f(0.0, 1.0); glVertex3f(-1.0,  1.0,  0.5)   
-    glTexCoord2f(0.0, 0.0); glVertex3f(-1.0,  1.0, -0.5)   
+    # Back Face
+    glTexCoord2f(0.230, 0.0); glVertex3f(-1.0, 0.0, -0.5)    
+    glTexCoord2f(0.230, 0.320); glVertex3f(-1.0,  1.0, -0.5)   
+    glTexCoord2f(0.7723, 0.320); glVertex3f( 1.0,  1.0, -0.5)    
+    glTexCoord2f(0.7723, 0.0 ); glVertex3f( 1.0, 0.0, -0.5)
     
-    glEnd()                # Done Drawing The Cube
-
-    glBegin( GL_TRIANGLES );
-
-    glColor3f( 1.0, 0.0, 0.0); glVertex3f( -1.0,  1.0,  0.5 );
-    glColor3f( 0.0, 1.0, 0.0); glVertex3f( -1.0, 1.5, 0.0 );
-    glColor3f( 0.0, 0.0, 1.0); glVertex3f( -1.0, 1.0, -0.5);
-
-    glColor3f( 1.0, 0.0, 0.0); glVertex3f( 1.0,  1.0,  0.5 );
-    glColor3f( 0.0, 1.0, 0.0); glVertex3f( 1.0, 1.5, 0.0 );
-    glColor3f( 0.0, 0.0, 1.0); glVertex3f( 1.0, 1.0, -0.5);
-
+    # Telhado Frente
+    glTexCoord2f(0.2296, 0.499); glVertex3f(-1.0,  1.5,  0.0)   
+    glTexCoord2f(0.2296, 0.677); glVertex3f(-1.0,  1.0,  0.5)    
+    glTexCoord2f(0.7703, 0.677); glVertex3f( 1.0,  1.0,  0.5)    
+    glTexCoord2f(0.7703, 0.499); glVertex3f( 1.0,  1.5,  0.0) 
+    
+    # Telhado Outro
+    glTexCoord2f(0.2296, 0.499); glVertex3f(-1.0,  1.5,  0.0)   
+    glTexCoord2f(0.2296, 0.677); glVertex3f(-1.0,  1.0,  -0.5)    
+    glTexCoord2f(0.7703, 0.677); glVertex3f( 1.0,  1.0,  -0.5)    
+    glTexCoord2f(0.7703, 0.499); glVertex3f( 1.0,  1.5,  0.0) 
 
     glEnd()   
     
-    xrot  = xrot + 0.01                # X rotation
-    yrot = yrot + 0.3                 # Y rotation
+    glBegin( GL_TRIANGLES );
+
+    glTexCoord2f( 0.0000, 0.677); glVertex3f( -1.0,  1.0,  0.5 );
+    glTexCoord2f( 0.1168, 0.524); glVertex3f( -1.0, 1.5, 0.0 );
+    glTexCoord2f( 0.2214, 0.677); glVertex3f( -1.0, 1.0, -0.5);
+    
+    glTexCoord2f( 0.0000, 0.677); glVertex3f( 1.0,  1.0,  0.5 );
+    glTexCoord2f( 0.1168, 0.524); glVertex3f( 1.0, 1.5, 0.0 );
+    glTexCoord2f( 0.2214, 0.677); glVertex3f( 1.0, 1.0, -0.5);
+
+
+    glEnd() 
+    
+    xrot  = xrot + 0.0                # X rotation
+    yrot = yrot + 0.2                 # Y rotation
     zrot = zrot + 0.0                 # Z rotation
 
     glutSwapBuffers()
